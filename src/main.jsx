@@ -1,0 +1,17 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./app.jsx/app.jsx";
+import "./styles/theme.css";
+import { CartProvider } from "./context/CartContext";
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
+	<React.StrictMode>
+		<CartProvider>
+			<App />
+		</CartProvider>
+	</React.StrictMode>
+);
+
+
