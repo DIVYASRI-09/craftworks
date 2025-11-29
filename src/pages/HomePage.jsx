@@ -24,14 +24,7 @@ const initialProducts = [
     rating: 4.5,
     image: "/images/handloom.jpg",
   },
-  {
-    name: "Warli Painting",
-    price: 2499,
-    artisan: "Meera Pawar",
-    category: "Painting",
-    rating: 4.8,
-    image: "/images/warli_art_17.jpg",
-  },
+  
   {
     name: "Dhokra Idol",
     price: 3499,
@@ -40,14 +33,7 @@ const initialProducts = [
     rating: 4.7,
     image: "/images/dhokra_idol.jpg",
   },
-  {
-    name: "Terracotta Vase",
-    price: 899,
-    artisan: "Asha Devi",
-    category: "Clay",
-    rating: 4.9,
-    image: "/images/terracotta_vase.jpg",
-  },
+ 
 ];
 
 function HomePage() {
