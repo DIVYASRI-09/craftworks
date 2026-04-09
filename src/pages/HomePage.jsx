@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import Carousel from "../components/Carousel";
@@ -6,38 +6,18 @@ import OfferStrip from "../components/OfferStrip";
 import FloatingCart from "../components/FloatingCart";
 import { useCart } from "../context/CartContext";
 
-// ✅ All images are now inside public/images/
-const initialProducts = [
-  {
-    name: "Bamboo Basket",
-    price: 799,
-    artisan: "Ravi Oraon",
-    category: "Bamboo",
-    rating: 4.6,
-    image: "/images/bamboo.jpg",
-  },
-  {
-    name: "Handloom Stole",
-    price: 1599,
-    artisan: "Sita Naik",
-    category: "Textile",
-    rating: 4.5,
-    image: "/images/handloom.jpg",
-  },
-  
-  {
-    name: "Dhokra Idol",
-    price: 3499,
-    artisan: "Kishan Munda",
-    category: "Metal",
-    rating: 4.7,
-    image: "/images/dhokra_idol.jpg",
-  },
- 
-];
-
 function HomePage() {
   const { items, addItem, setIsOpen } = useCart();
+
+  // ✅ NEW: Fetch products from backend
+  const [initialProducts, setInitialProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://backend-crafts-production.up.railway.app/products")
+      .then((res) => res.json())
+      .then((data) => setInitialProducts(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <main>
@@ -128,9 +108,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
-
-
-
-
